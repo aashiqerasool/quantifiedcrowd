@@ -6,17 +6,15 @@
 meteor-platform
 insecure
 iron:router
-mizzao:bootstrap-3
 underscore
-accounts-password
-ian:accounts-ui-bootstrap-3
 sacha:spin
 launch-screen
 urigo:ionic
 blaze
 aldeed:autoform
 axw:ratchet
-accounts-google
-accounts-facebook
-accounts-twitter
+mizzao:bootstrap-3
+accounts-base
+accounts-password
+email
 

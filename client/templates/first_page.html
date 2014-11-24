@@ -1,6 +1,41 @@
 <template name="firstPage">
   <div class="first-page jumbotron">
     <h2>Hello</h2>
-    <p>Welcome to quantifiedCrowd</p>
+
+  </div>
+  <div align="center">
+      <p>Welcome to quantifiedCrowd</p>
+    <br>
+    <br>
+<!--     <a href="#">Sign up</a> -->
+<!--     <form class="input-group">
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+      <br>
+      <button class="btn btn-primary">Log in</button>
+</form> -->
+<!--     {{> loginButtons}} -->
+<!--     {{> loginForm}}
+     -->
+    
+<!--     <button class="btn btn-positive btn-outlined">Sign up</button>
+  </div>
+ -->
+    
+    {{> alert}}
+    {{#unless resetPassword}}
+        {{#unless currentUser}}
+            {{#unless showForgotPassword}}
+                {{> logIn}}
+                {{> signUp}}
+            {{else}}
+                {{> forgotPassword}}
+            {{/unless}}
+        {{else}}
+            {{> logOut}}
+        {{/unless}}
+    {{else}}
+        {{> resetPassword}}
+    {{/unless}}
   </div>
 </template> 
