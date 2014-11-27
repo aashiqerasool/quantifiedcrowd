@@ -12,9 +12,11 @@ launch-screen
 urigo:ionic
 blaze
 aldeed:autoform
-axw:ratchet
 mizzao:bootstrap-3
 accounts-base
 accounts-password
 email
+useraccounts:bootstrap
+axw:ratchet
+useraccounts:ratchet
 
