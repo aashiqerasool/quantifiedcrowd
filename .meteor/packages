@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 meteor-platform
-insecure
 iron:router
 underscore
 sacha:spin
@@ -16,7 +15,7 @@ mizzao:bootstrap-3
 accounts-base
 accounts-password
 email
-useraccounts:bootstrap
 axw:ratchet
 useraccounts:ratchet
-
+aldeed:collection2
+cybit:mobile-redirect
