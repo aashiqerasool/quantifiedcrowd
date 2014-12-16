@@ -16,8 +16,9 @@ accounts-base
 accounts-password
 email
 axw:ratchet
-useraccounts:ratchet
 aldeed:collection2
-cybit:mobile-redirect
 autopublish
+momentjs:moment
+joshowens:accounts-entry
+insecure
 

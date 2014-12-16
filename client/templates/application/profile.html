@@ -4,11 +4,26 @@
   </div>
   
   <div class="content-padded">
-    <h2>Name: {{firstName}} {{lastName}}</h2>
-    <h2>Age: </h2>
-    <h2>Height: {{latestHeight}} Metres</h2>
-    <h2>Latest Weight: {{latestWeight}} KG</h2>
-    <h2>BMI: {{showBmi}}</h2>
+    <h3>Name: {{firstName}} {{lastName}}</h3>
+    <h3>Age: {{age}}</h3>
+    {{#if gender}}
+    <h3>Gender: {{gender}}</h3>
+    {{else}}
+    <h3>Gender: <a href="/updateProfile">Update gender</a></h3>
+      {{/if}}
+    <h3>Height: {{latestHeight}} Metres</h3>
+    {{#if latestWeight}}
+    <h3>Latest Weight: {{latestWeight}} KG</h3>
+    {{else}}
+    <h3>Latest Weight: <a href="/updateWeight">Update weight</a></h3>
+      {{/if}}
+    <h3>BMI: {{showBmi}}</h3>
+
+    <div>
+      <a href="/updateProfile" class="btn btn-primary">Modify profile</a>
+    </div>
+  
   </div>
+
   
 </template>

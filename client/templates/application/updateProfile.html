@@ -1,0 +1,23 @@
+<template name="updateProfile">
+  <div class="jumbotron">
+    <h3>Update Profile</h3>
+  </div>
+   <div>
+  <ul class="table-view">
+    <li class="table-view-cell">
+      <a class="navigate-left" align="left" href="/profile">
+          &nbsp;&nbsp;&nbsp;&nbsp;Back
+      </a>
+    </li>
+    </ul>
+  </div>
+    {{#autoForm collection=users doc=user id="updateProfileForm" type="update"}}
+    <fieldset>
+<!--       <legend>Update Weight</legend> -->
+<!--       {{> afQuickField name='email'}} -->
+      {{> afObjectField name='profile'}}
+<!--       {{> afQuickField name="comments"}} -->
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Update</button>
+    {{/autoForm}}
+</template>

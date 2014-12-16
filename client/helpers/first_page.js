@@ -1,6 +1,6 @@
-Template.firstPage.helpers({
-    showForgotPassword: function() {
-        return Session.get('showForgotPassword');
-    }
-});
+// Template.firstPage.helpers({
+//     showForgotPassword: function() {
+//         return Session.get('showForgotPassword');
+//     }
+// });
 
