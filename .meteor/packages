@@ -5,7 +5,6 @@
 
 meteor-platform
 iron:router
-underscore
 sacha:spin
 launch-screen
 urigo:ionic
@@ -21,4 +20,15 @@ autopublish
 momentjs:moment
 joshowens:accounts-entry
 insecure
+aslagle:reactive-table
+fortawesome:fontawesome
+d3js:d3
+d3
+underscore
+maazalik:highcharts
+pfafman:epoch
+alamont:chartjs
+jquery
+mrt:nvd3js
+peernohell:c3
 

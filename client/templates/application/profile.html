@@ -11,7 +11,11 @@
     {{else}}
     <h3>Gender: <a href="/updateProfile">Update gender</a></h3>
       {{/if}}
-    <h3>Height: {{latestHeight}} Metres</h3>
+    {{#if height}}
+    <h3>Height: {{height}} Metres</h3>
+    {{else}}
+    <h3>Height: <a href="/updateProfile">Update height</a></h3>
+      {{/if}}
     {{#if latestWeight}}
     <h3>Latest Weight: {{latestWeight}} KG</h3>
     {{else}}
@@ -21,6 +25,7 @@
 
     <div>
       <a href="/updateProfile" class="btn btn-primary">Modify profile</a>
+
     </div>
   
   </div>

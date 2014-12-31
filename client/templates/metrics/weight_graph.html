@@ -1,0 +1,33 @@
+<template name="weightGraph">
+  <h1>Weight Graph</h1>
+  
+<!--   <div id="chart"></div> -->
+<!--   {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=weightChart}} -->
+<!--   {{#each graphData}} -->
+<!--   {{graphData}} -->
+<!--   {{weight}} -->
+<!--   {{/each}} -->
+ 
+<!--   {{#each graphData}} -->
+<!--   <p>{{updatedAt}}</p> -->
+<!--   {{/each}} -->
+<!--   {{#each weightHistoryList}} -->
+<!--     <p>{{formatDate updatedAt "shortUK"}} {{weight}}</p> -->
+<!--   {{/each}} -->
+<!--   <div id="chart"> -->
+<!--  {{> highchart}} -->
+<!--   </div> -->
+  
+<!--   <canvas id="myChart" style="width:100%; height:100%"></canvas> -->
+
+  {{> chart}}
+  
+</template>
+
+<template name="highchart">
+    <div class="highchart"></div>
+</template>
+
+<template name="chart">
+  {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=weightProgressChart}}
+</template>

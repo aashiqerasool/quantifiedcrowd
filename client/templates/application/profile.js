@@ -36,7 +36,7 @@ Template.profile.helpers({
     var latestWeight = Weights.findOne({userId: Meteor.userId()}, {sort: {updatedAt: -1}}).weight;
     return latestWeight;
   },
-    latestHeight: function() {
+    height: function() {
     return Meteor.user().profile.height;
   },
   showBmi: function() {
