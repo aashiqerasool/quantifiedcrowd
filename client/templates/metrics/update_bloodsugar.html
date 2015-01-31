@@ -2,13 +2,22 @@
   <div class="jumbotron">
     <h3>Update Blood Sugar</h3>
   </div>  
-<!--     {{#autoForm collection="BloodPressures" id="updateBp" type="insert"}}
-    <fieldset> -->
+<div>
+  <ul class="table-view">
+    <li class="table-view-cell">
+      <a class="navigate-left" align="left" href="/metrics">
+          &nbsp;&nbsp;&nbsp;&nbsp;Back
+      </a>
+    </li>
+    </ul>
+  </div>
+    {{#autoForm collection="BloodSugar" id="updateBloodSugar" type="insert"}}
+    <fieldset>
 <!--       <legend>Update Weight</legend> -->
-<!--       {{> afQuickField name="height"}}
+      {{> afQuickField name="bloodsugar"}}
       {{> afQuickField name="comments"}}
     </fieldset>
     <button type="submit" class="btn btn-primary">Update</button>
-    {{/autoForm}} -->
+    {{/autoForm}}
  
 </template>

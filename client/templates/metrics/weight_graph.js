@@ -60,7 +60,7 @@ Template.weightGraph.helpers({
 
 Template.chart.helpers({
   weightProgressChart: function() {
-    var weights = Weights.find({userId: Meteor.userId()}, {sort: {updatedAt: -1}}).fetch();
+    var weights = Weights.find({userId: Meteor.userId()}, {sort: {updatedAt: 1}}).fetch();
     var dataset = [];
     var weightsOnly = [];
     var datesOnly = [];
@@ -90,11 +90,13 @@ Template.chart.helpers({
             plotShadow: false
         },
         title: {
-            text: 'Monthly Average Temperature',
+            text: Meteor.user().profile.firstName+'\'s Weight Progress',
+            align: 'center',
             x: -20 //center
         },
         subtitle: {
-            text: 'Source: WorldClimate.com',
+            text: '',
+          margin: 30,
             x: -20
         },
         xAxis: {
@@ -104,7 +106,7 @@ Template.chart.helpers({
         },
         yAxis: {
             title: {
-                text: 'Temperature (°C)'
+                text: 'Weight (KG)'
             },
             plotLines: [{
                 value: 0,
@@ -117,8 +119,10 @@ Template.chart.helpers({
         },
         legend: {
             layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
+            align: 'center',
+            verticalAlign: 'bottom',
+            floating: false,
+            margin: 15,
             borderWidth: 0
         },
         series: [{

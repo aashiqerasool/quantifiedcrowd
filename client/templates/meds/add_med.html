@@ -1,0 +1,48 @@
+<template name="addMed">
+  <div class="jumbotron">
+    <h3>Add Med</h3>
+  </div>  
+<div>
+  <ul class="table-view">
+    <li class="table-view-cell">
+      <a class="navigate-left" align="left" href="/metrics">
+          &nbsp;&nbsp;&nbsp;&nbsp;Back
+      </a>
+    </li>
+    </ul>
+  </div>
+<!--     {{#autoForm collection=meds schema=medTrackDataSchema doc=user id="addMedForm" type="insert"}} -->
+<!--     {{#autoForm collection="Meds" id="addMedForm" type="insert"}} -->
+<!--     <fieldset> -->
+<!--       {{> afQuickField name='medName' id="medSelect2" schema="MedsSchema"}} -->
+<!--       {{> afQuickField name='availableStrengths' id="doseSelect2" schema="MedsSchema"}} -->
+<!--       {{> quickForm id="medSelect" collection="Meds"}} -->
+<!--       <legend>Update Weight</legend> -->
+<!--       {{> afFieldInput name="medName" multiple=false}} -->
+<!--       {{> afObjectField name='profile.medTrackData.0'}} -->
+<!--       {{> afQuickField name = 'profile.meds'}} -->
+<!--       {{> afQuickField name="comments"}} -->
+<!--     </fieldset> -->
+<!--     <input class="form-control typeahead" name="medicine" type="text"
+       placeholder="Search and Select Medicine"
+       autocomplete="off" spellcheck="off"
+       data-source="medsDataSource" data-template="medDetails"/>
+   -->
+  
+  {{> inputAutocomplete settings=medSettings id="medChoice" class="input-xlarge" placeholder="Search and Select Medicine"}}
+  <select id="strengthSelect" name="selectbasic" class="input-xlarge">
+    {{#each strengths}}  
+    <option>{{strength}}</option>
+    {{/each}}
+  </select>
+
+  
+  <a id="medSelectBtn" class="btn btn-primary">Select</a>
+<!--     {{/autoForm}} -->
+ 
+</template>
+
+<template name="medDetails">
+       <p id="medDetails-medName">{{medName}}</p>
+<!--        <p id="medDetails-measureUnit">{{availableStrengths}}</p> -->
+</template>

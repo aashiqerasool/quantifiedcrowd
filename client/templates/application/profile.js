@@ -30,7 +30,16 @@ Template.profile.helpers({
     var dobMonth = dob.getMonth();
     var ageYear = currentYear - dobYear;
     var ageMonth = currentMonth - dobMonth;
-    return ageYear + " years " + ageMonth + " months";
+    
+    if (currentMonth <= dobMonth || currentMonth == dobMonth && currentDate.getDate() < dob.getDate()) {
+      ageYear--;
+    }
+    
+    if (ageMonth < 0) {
+      ageMonth = Math.abs(ageMonth);
+    }
+    var ageFull = ageYear + " years " + ageMonth + " months";
+    return ageFull;
   },
   latestWeight: function() {
     var latestWeight = Weights.findOne({userId: Meteor.userId()}, {sort: {updatedAt: -1}}).weight;

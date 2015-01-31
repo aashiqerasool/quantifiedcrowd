@@ -15,7 +15,7 @@ Template.weightHistoryList.helpers({
         var dateDay = date.getDate();
         var dateMonth = date.getMonth();
         var dateFormatted = date.toString("dd-MM-yyyy");
-        return dateDay + "/" + dateMonth + "/" + dateYear; } },
+        return dateDay + "/" + (dateMonth+1) + "/" + dateYear; } },
     { key: 'weight', label: 'Weight' }
 ],
           useFontAwesome: true,
