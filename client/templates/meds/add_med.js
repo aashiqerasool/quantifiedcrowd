@@ -15,21 +15,19 @@ Template.addMed.helpers({
     return Schema.MedTrackDataSchema;
   },
   strengths: function () {
+    //Session.set("medStrengths", "");
+    
     var strengthsDataset = [];
 //     var strengths = Meds.find({_id: Session.get("selectedMed")}, { availableStrengths: 1,});
-    var strengths = Session.get("medStrengths");
+    var strengths = [];
+    strengths = Session.get("medStrengths");
 //    strengths.forEach()
     //Session.set("availableStrengths", strengths)
-    console.log(strengths);
+    //console.log(strengths);
     strengths.forEach(function(strength) {
       var item = {
         strength: strength
       };
-      
-//       var item2 = {
-//         "weight": weight.weight
-//       };
-   
       strengthsDataset.push(item);
     });
     return strengthsDataset;
@@ -72,11 +70,11 @@ Template.addMed.helpers({
 
 Template.addMed.events({
   'click #medSelectBtn': function () {
-    
-    console.log("Form submitted");
+   Session.set("medStrengths"); 
+    //console.log("Form submitted");
     var selectedMeds = $("#medChoice");
-    console.log(selectedMeds);
-    console.log(Session.get("availableStrengths"));
+    //console.log(selectedMeds);
+    //console.log(Session.get("availableStrengths"));
   },
   'change #strengthSelect': function(event, template) {
     Session.set("selectedStrength",$(event.target).val());
