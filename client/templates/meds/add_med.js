@@ -1,4 +1,9 @@
+Meteor.subscribe("medsData");
+
 Template.addMed.helpers({
+  pageName: function () {
+    return "Add Med"
+  },
   users: function () {
     return Meteor.users;
   },
@@ -32,20 +37,23 @@ Template.addMed.helpers({
     });
     return strengthsDataset;
   },
+  measureUnit: function () {
+    return Session.get("measureUnit");
+  },
   medSettings: function () {
     return {
-      position: "top",
+      position: "bottom",
       limit: 5,
       rules: [
      {
        collection: Meds,
        field: "medName",
-       template: Template.medDetails
+       template: Template.medSelectList
      }
    ]
   }
 },
-    doseSettings: function () {
+  doseSettings: function () {
     return {
       position: "top",
       limit: 5,
@@ -53,7 +61,7 @@ Template.addMed.helpers({
      {
        collection: Meds,
        field: "medName",
-       template: Template.medDetails
+       template: Template.medSelectList
      }
    ]
   }
@@ -79,13 +87,17 @@ Template.addMed.events({
   'change #strengthSelect': function(event, template) {
     Session.set("selectedStrength",$(event.target).val());
     console.log(Session.get("selectedStrength"));
+  },
+   'click #medSelectList-medName': function(event, med){
+    console.log("medDetails "+this.availableStrengths);
+    Session.set("selectedMedId", this._id);
+    Session.set("selectedMedName", this.medName);
+    console.log(Session.get("selectedMedName"));
+    Session.set("medStrengths", this.availableStrengths);
+    Session.set("measureUnit", this.measureUnit);
+    console.log(Session.get("selectedMedId"));
+    console.log(Session.get("medStrengths"));    
   }
-//   'keypress #medChoice': function (evt, template) {
-//     if (evt.which === 13) {
-//       var url = template.find(".newLink").value;
-//       // add to database
-//     }
-//   }
 });
 
 

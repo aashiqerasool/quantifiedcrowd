@@ -1,7 +1,7 @@
 <template name="profile">
-    <div class="jumbotron">
-    <h3>Profile</h3>
-  </div>
+ <header class="bar bar-nav">
+    <h3 class="title">{{pageName}}</h3>
+  </header>
   
   <div class="content-padded">
     <h3>Name: {{firstName}} {{lastName}}</h3>
@@ -22,6 +22,7 @@
     <h3>Latest Weight: <a href="/updateWeight">Update weight</a></h3>
       {{/if}}
     <h3>BMI: {{showBmi}}</h3>
+    <h3>BMI Status: {{bmiStatus}}</h3>
 
     <div>
       <a href="/updateProfile" class="btn btn-primary">Modify profile</a>

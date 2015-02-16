@@ -1,5 +1,25 @@
 <template name="meds">
-  <div class="jumbotron">
-    <h3>Meds</h3>
-  </div>
+ <header class="bar bar-nav">
+    <h3 class="title">{{pageName}}</h3>
+  </header>
+
+    <ul class="table-view">
+      <li class="table-view-divider">Update Metrics</li>
+      <li class="table-view-cell">
+        <a class="navigate-right" href={{pathFor 'addMed'}}>
+          Add New Medicine
+        </a>
+    </li>
+      <li class="table-view-cell">
+        <a class="navigate-right" href="#">
+          Edit Medicines
+        </a>
+    </li>
+      <li class="table-view-cell">
+        <a class="navigate-right" href={{pathFor 'addMed'}}>
+          Update Medicines
+        </a>
+    </li>
+    </ul>
+
 </template>

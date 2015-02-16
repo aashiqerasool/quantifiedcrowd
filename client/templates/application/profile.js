@@ -8,6 +8,9 @@ Handlebars.registerHelper("prettifyDate", function(timestamp) {
 });
 
 Template.profile.helpers({
+    pageName: function () {
+    return "Profile"
+  },
   firstName: function() {
     return Meteor.user().profile.firstName;
   },
@@ -49,10 +52,41 @@ Template.profile.helpers({
     return Meteor.user().profile.height;
   },
   showBmi: function() {
-  var latestWeight = Weights.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).weight;
+    var latestBmi = Bmi.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).bmi;
+    var latestWeight = Weights.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).weight;
     var height = Meteor.user().profile.height;
     var heightSq = height^2
     var bmi = latestWeight/heightSq;
-    return bmi.toFixed(2);
+//     console.log(latestBmi);
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.bmi': bmi.toFixed(2)}});
+    return latestBmi.toFixed(2);
+  },
+  newBmi: function() {
+//     console.log(Meteor.user().profile.bmiStatus);
+    return Meteor.user().profile.bmi.toFixed(2);
+  },
+  bmiStatus: function() {
+    var currentBmi = Bmi.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).bmi;
+    var currentBmiStatus;
+     if (currentBmi < 18.5 ){
+      currentBmiStatus = "Underweight";
+
+    }
+    else
+      if (currentBmi >= 18.5 && currentBmi <= 24.9 ){
+      currentBmiStatus = "Healthy";
+    }
+    if (currentBmi >= 25 && currentBmi < 30 ){
+      currentBmiStatus = "Overweight";
+    }
+    else
+      if (currentBmi >= 30 ) {
+      currentBmiStatus = "Obese";
+      }
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.bmiStatus': currentBmiStatus}});
+    return currentBmiStatus;
   }
 });
+
+Meteor.subscribe("userWeightData");
+Meteor.subscribe("userBmiData");

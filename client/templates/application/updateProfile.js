@@ -1,4 +1,7 @@
 Template.updateProfile.helpers({
+    pageName: function () {
+    return "Update Profile";
+  },
   users: function () {
     return Meteor.users;
   },

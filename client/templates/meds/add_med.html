@@ -1,7 +1,9 @@
 <template name="addMed">
-  <div class="jumbotron">
-    <h3>Add Med</h3>
-  </div>  
+<!--   <div class="jumbotron"> -->
+  <header class="bar bar-nav">
+    <h3 class="title">{{pageName}}</h3>
+  </header>
+<!--   </div>   -->
 <div>
   <ul class="table-view">
     <li class="table-view-cell">
@@ -28,21 +30,39 @@
        autocomplete="off" spellcheck="off"
        data-source="medsDataSource" data-template="medDetails"/>
    -->
-  
-  {{> inputAutocomplete settings=medSettings id="medChoice" class="input-xlarge" placeholder="Search and Select Medicine"}}
-  <select id="strengthSelect" name="selectbasic" class="input-xlarge">
+<form>
+  {{> inputAutocomplete settings=medSettings id="medChoice" placeholder="Search Medicine"}}
+  <select id="strengthSelect" name="strengthSelect" class="input-small">
     {{#each strengths}}  
-    <option>{{strength}}</option>
+    <option value={{strength}}>{{strength}} {{measureUnit}}</option>
     {{/each}}
   </select>
-
-  
-  <a id="medSelectBtn" class="btn btn-primary">Select</a>
+  <h3>Selected Medicine:</h3><h4>{{$.Session.get 'selectedMedName'}} {{$.Session.get 'selectedStrength'}}{{measureUnit}}</h4>
+  <br>
+  <h2>Dose</h2>
+  <p>Morning</p>
+  <div class="input-group input-group-sm">
+    <input type="number" id="mornValue" class="input-mini" min="0" size="2">
+<!--     <span class="input-group-addon">in the morning</span> -->
+  </div>
+    <p>Midday</p>
+    <div class="input-group input-group-sm">
+    <input type="number" id="midDayValue" class="input-mini" min="0" size="2">
+<!--     <span class="input-group-addon">in the morning</span> -->
+  </div>
+    <p>Evening</p>
+    <div class="input-group input-group-sm">
+    <input type="number" id="eveValue" class="input-mini" min="0" size="2">
+<!--     <span class="input-group-addon">in the morning</span> -->
+  </div>
+    <p>Night</p>
+    <div class="input-group input-group-sm">
+    <input type="number" id="nightValue" class="input-mini" min="0" size="2">
+<!--     <span class="input-group-addon">in the morning</span> -->
+  </div>
+    
+  <a id="medSelectBtn" class="btn btn-primary" align="center">Select</a>
 <!--     {{/autoForm}} -->
- 
+  </form> 
 </template>
 
-<template name="medDetails">
-       <p id="medDetails-medName">{{medName}}</p>
-<!--        <p id="medDetails-measureUnit">{{availableStrengths}}</p> -->
-</template>

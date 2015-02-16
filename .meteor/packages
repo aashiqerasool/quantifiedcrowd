@@ -5,7 +5,6 @@
 
 meteor-platform
 iron:router
-sacha:spin
 launch-screen
 urigo:ionic
 blaze
@@ -16,7 +15,6 @@ accounts-password
 email
 axw:ratchet
 aldeed:collection2
-autopublish
 momentjs:moment
 joshowens:accounts-entry
 insecure
@@ -31,4 +29,23 @@ alamont:chartjs
 jquery
 mrt:nvd3js
 peernohell:c3
+multiply:iron-router-progress
+sacha:spin
+alanning:roles
+houston:admin
+comerc:bs-typeahead
+comerc:autoform-typeahead
+aldeed:autoform-select2
+natestrauser:select2
+zimme:select2-bootstrap3-css
+comerc:autoform-selectize
+jeremy:selectize
+sergeyt:typeahead
+mizzao:autocomplete
+raix:handlebar-helpers
+twbs:bootstrap
+rajit:bootstrap3-datepicker
+aldeed:autoform-bs-datepicker
+monbro:mongodb-mapreduce-aggregation
+meteorhacks:aggregate
 

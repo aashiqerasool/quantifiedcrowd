@@ -23,3 +23,5 @@ Template.weightHistoryList.helpers({
         };
     }
 });
+
+Meteor.subscribe("userWeightData");
