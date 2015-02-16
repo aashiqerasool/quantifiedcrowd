@@ -6,7 +6,6 @@
 meteor-platform
 iron:router
 launch-screen
-urigo:ionic
 blaze
 aldeed:autoform
 mizzao:bootstrap-3
@@ -27,7 +26,6 @@ maazalik:highcharts
 pfafman:epoch
 alamont:chartjs
 jquery
-mrt:nvd3js
 peernohell:c3
 multiply:iron-router-progress
 sacha:spin
@@ -46,6 +44,5 @@ raix:handlebar-helpers
 twbs:bootstrap
 rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
-monbro:mongodb-mapreduce-aggregation
-meteorhacks:aggregate
 
+doctorpangloss:mongodb-server-aggregation

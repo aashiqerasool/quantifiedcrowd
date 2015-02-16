@@ -53,12 +53,12 @@ Template.profile.helpers({
   },
   showBmi: function() {
     var latestBmi = Bmi.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).bmi;
-    var latestWeight = Weights.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).weight;
-    var height = Meteor.user().profile.height;
-    var heightSq = height^2
-    var bmi = latestWeight/heightSq;
+//     var latestWeight = Weights.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).weight;
+//     var height = Meteor.user().profile.height;
+//     var heightSq = height^2
+//     var bmi = latestWeight/heightSq;
 //     console.log(latestBmi);
-    Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.bmi': bmi.toFixed(2)}});
+    Meteor.users.update({_id: Meteor.userId()}, {$set: {'profile.bmi': latestBmi.toFixed(2)}});
     return latestBmi.toFixed(2);
   },
   newBmi: function() {

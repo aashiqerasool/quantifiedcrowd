@@ -6,10 +6,10 @@ Meteor.methods({
     return Meteor.users.find({}, {'profile.bmi': 1}).fetch();
   },
   bmiAggrfx: function() {
-    var users = Meteor.users;
-   var pipeline = [{$group: {_id: "$profile.bmiStatus", usersinBmiStatus : { $sum: 1 }}}];
+//     var bmis = Meteor.users;
+   var pipeline = [{$group: {_id: "$bmi", usersinBmi : { $sum: 1 }}}];
 //         var pipeline = [{$group: {_id: "$weight", weights : { $sum: 1 }}}];
-    var result = Meteor.users.aggregate(pipeline);
+    var result = Bmi.aggregate(pipeline);
     console.log(result);
   },
   updateWeight: function(doc){
