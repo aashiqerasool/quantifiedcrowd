@@ -52,7 +52,7 @@ Template.profile.helpers({
     return Meteor.user().profile.height;
   },
   showBmi: function() {
-    var latestBmi = Bmi.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).bmi;
+    var latestBmi = Bmi.findOne({userId: Meteor.userId()}, {sort: {updatedAt: -1}}).bmi;
 //     var latestWeight = Weights.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).weight;
 //     var height = Meteor.user().profile.height;
 //     var heightSq = height^2
@@ -66,7 +66,7 @@ Template.profile.helpers({
     return Meteor.user().profile.bmi.toFixed(2);
   },
   bmiStatus: function() {
-    var currentBmi = Bmi.findOne({userId:   Meteor.userId()}, {sort: {updatedAt: -1}}).bmi;
+    var currentBmi = Bmi.findOne({userId: Meteor.userId()}, {sort: {updatedAt: -1}}).bmi;
     var currentBmiStatus;
      if (currentBmi < 18.5 ){
       currentBmiStatus = "Underweight";

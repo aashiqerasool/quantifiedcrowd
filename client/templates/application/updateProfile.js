@@ -13,7 +13,7 @@ Template.updateProfile.helpers({
   }
 });
 
-AutoForm.addHooks(['updateWeight', 'updateBloodPressure', 'updateBloodSugar'], {
+AutoForm.addHooks(['updateWeight', 'updateBloodPressure', 'updateBloodSugar', 'updateProfileForm'], {
     onSuccess: function () {
       Router.go('/profile');
     }
