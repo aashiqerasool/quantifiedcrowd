@@ -46,3 +46,4 @@ rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
 
 doctorpangloss:mongodb-server-aggregation
+percolate:synced-cron
