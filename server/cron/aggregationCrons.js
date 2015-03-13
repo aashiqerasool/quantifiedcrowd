@@ -3,7 +3,7 @@ SyncedCron.add({
   name: 'bmi daily aggregation test',
   schedule: function(parser) {
     //parser is a later.parse object
-    return parser.text('every 5 seconds');
+    return parser.text('every 24 hours');
   },
   job: function() {
 

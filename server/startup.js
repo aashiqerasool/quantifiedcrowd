@@ -3,5 +3,5 @@ Meteor.startup(function () {
     SyncedCron.start();
     
     // Stop jobs after 15 seconds
-    Meteor.setTimeout(function() { SyncedCron.stop(); }, 15 * 1000);
+//     Meteor.setTimeout(function() { SyncedCron.stop(); }, 15 * 1000);
   });

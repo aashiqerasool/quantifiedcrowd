@@ -4,7 +4,6 @@
     {
       "host": "178.62.44.227",
       "username": "root",
-      //"password": "Saify786"
       // or pem file (ssh based authentication)
       "pem": "~/quantifiedCrowd/id_rsa"
     }

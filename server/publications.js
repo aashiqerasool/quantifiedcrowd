@@ -28,6 +28,18 @@ Meteor.publish("userBmiData", function() {
   return Bmi.find({userId: this.userId});
 });
 
+Meteor.publish('oaAvgBmiHistoryPub',function(){
+//     var lastSevenDays = new Date(Date.now() - 1000 * 3600 * 24 * 4); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+//     var oaABmiLastSevenDays = OaAvgBmiDaily.find({updatedAt: {$gt: lastSevenDays}}); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+//   var oaABmiLastSevenDays = OaAvgBmiDaily.find().fetch();
+//     console.log(oaABmiLastSevenDays);
+//     return oaABmiLastSevenDays;
+  console.log(OaAvgBmiDaily.find());
+  return OaAvgBmiDaily.find();
+//     return OaAvgBmiDaily.find().fetch();
+  });
+
+
 // Meteor.publish('bmiStats', function() {
 //   self = this;
 //   var users = Meteor.users;
