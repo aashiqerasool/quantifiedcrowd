@@ -1,9 +1,12 @@
 <template name="layout">
-  <div class="container">
+<!--   <div class="container"> -->
    
-    <div id="main" class="content">
+<!--     <div id="main" class="content"> -->
+      {{#momentum plugin='iron-router' options=transition}}
       {{> yield}}
-    </div>
-     {{> bottomNavbar}}
-  </div>
+      {{> bottomNavbar}}
+      {{/momentum}}
+<!--     </div> -->
+     
+<!--   </div> -->
 </template>

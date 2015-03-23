@@ -2,10 +2,12 @@
  <header class="bar bar-nav">
     <h3 class="title">{{pageName}}</h3>
   </header>
+  <div class="content">
+    <div class="content-padded">
   <div>
   <ul class="table-view">
     <li class="table-view-cell">
-      <a class="navigate-left" align="left" href="/metrics">
+      <a class="navigate-left" align="left" href="{{pathFor getPreviousPage}}">
           &nbsp;&nbsp;&nbsp;&nbsp;Back
       </a>
     </li>
@@ -20,5 +22,6 @@
     </fieldset>
     <button type="submit" class="btn btn-primary">Update</button>
     {{/autoForm}}
- 
+    </div>
+  </div>
 </template>

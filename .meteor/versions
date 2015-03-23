@@ -11,7 +11,6 @@ anti:i18n@0.4.3
 application-configuration@1.0.4
 aslagle:reactive-table@0.6.15
 autoupdate@1.1.5
-axw:ratchet@0.1.2
 base64@1.0.2
 binary-heap@1.0.2
 blaze@2.0.4
@@ -78,7 +77,10 @@ npm-bcrypt@0.7.7
 observe-sequence@1.0.4
 ordered-dict@1.0.2
 peernohell:c3@1.1.2
+percolate:momentum@0.7.2
+percolate:momentum-iron-router@0.7.0
 percolate:synced-cron@1.1.1
+percolate:velocityjs@1.1.0
 pfafman:epoch@0.6.0
 raix:handlebar-helpers@0.2.4
 rajit:bootstrap3-datepicker@1.4.1
@@ -108,4 +110,5 @@ underscore@1.0.2
 url@1.0.3
 webapp@1.1.6
 webapp-hashing@1.0.2
+zendy:velociratchet@2.0.0
 zimme:select2-bootstrap3-css@1.4.1
