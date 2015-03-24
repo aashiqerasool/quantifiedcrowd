@@ -1,8 +1,9 @@
 <template name="updateProfile">
- <header class="bar bar-nav">
+<!--  <header class="bar bar-nav">
     <h3 class="title">{{pageName}}</h3>
-  </header>
-   <div>
+  </header> -->
+    {{> titleBar pageName="Update Profile" backButton=1}}
+<!--    <div>
   <ul class="table-view">
     <li class="table-view-cell">
       <a class="navigate-left" align="left" href="/profile">
@@ -10,14 +11,20 @@
       </a>
     </li>
     </ul>
-  </div>
+  </div> -->
+  <div class = "content">
     {{#autoForm collection=users doc=user id="updateProfileForm" type="update"}}
-    <fieldset>
+<!--     <fieldset> -->
 <!--       <legend>Update Weight</legend> -->
 <!--       {{> afQuickField name='email'}} -->
       {{> afObjectField name='profile'}}
 <!--       {{> afQuickField name="comments"}} -->
-    </fieldset>
+<!--     </fieldset> -->
     <button type="submit" class="btn btn-primary">Update</button>
     {{/autoForm}}
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
 </template>

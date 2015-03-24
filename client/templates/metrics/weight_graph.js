@@ -58,9 +58,84 @@ Template.weightGraph.helpers({
 //   });
 // }
 
-Template.chart.helpers({
-  weightProgressChart: function() {
-    var weights = Weights.find({userId: Meteor.userId()}, {sort: {updatedAt: 1}}).fetch();
+// Template.chart.helpers({
+//   weightProgressChart: function() {
+//     var weights = Weights.find({userId: Meteor.userId()}, {sort: {updatedAt: 1}}).fetch();
+//     var dataset = [];
+//     var weightsOnly = [];
+//     var datesOnly = [];
+    
+//     weights.forEach(function(weight) {
+//       var item = {
+//         "date": weight.updatedAt,
+//         "weight": weight.weight
+//       };
+      
+// //       var item2 = {
+// //         "weight": weight.weight
+// //       };
+   
+//       dataset.push(item);
+//       weightsOnly.push(weight.weight);
+//       datesOnly.push(moment(weight.updatedAt).format("DD/MM/YYYY"));
+//     });
+//   console.log(JSON.stringify(dataset));
+//   var weightsAsJSON = JSON.stringify(dataset);
+//   var weightsOnlyAsJSON = JSON.stringify(weightsOnly);  
+//   console.log(datesOnly);  
+//     return {
+//         chart: {
+//             plotBackgroundColor: null,
+//             plotBorderWidth: null,
+//             plotShadow: false
+//         },
+//         title: {
+//             text: Meteor.user().profile.firstName+'\'s Weight Progress',
+//             align: 'center',
+//             x: -20 //center
+//         },
+//         subtitle: {
+//             text: '',
+//           margin: 30,
+//             x: -20
+//         },
+//         xAxis: {
+//             categories: datesOnly
+// //           ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+// //                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+//         },
+//         yAxis: {
+//             title: {
+//                 text: 'Weight (KG)'
+//             },
+//             plotLines: [{
+//                 value: 0,
+//                 width: 1,
+//                 color: '#808080'
+//             }]
+//         },
+//         tooltip: {
+//             valueSuffix: 'KG'
+//         },
+//         legend: {
+//             layout: 'vertical',
+//             align: 'center',
+//             verticalAlign: 'bottom',
+//             floating: false,
+//             margin: 15,
+//             borderWidth: 0
+//         },
+//         series: [{
+//             name: Meteor.user().profile.firstName+'\'s Weight Progress',
+//             data: weightsOnly
+//         }]
+//     };
+//   }});
+var user = Meteor.user();
+function buildWeightLine() {
+    var lastFourWeeks = new Date(Date.now() - 1000 * 3600 * 24 * 7 * 4);
+    var lastTwoWeeks = new Date(Date.now() - 1000 * 3600 * 24 * 7 * 2);
+    var weights = Weights.find({userId: Meteor.userId(), updatedAt: {$gt: lastFourWeeks}}, {sort: {updatedAt: 1}}).fetch();
     var dataset = [];
     var weightsOnly = [];
     var datesOnly = [];
@@ -83,7 +158,7 @@ Template.chart.helpers({
   var weightsAsJSON = JSON.stringify(dataset);
   var weightsOnlyAsJSON = JSON.stringify(weightsOnly);  
   console.log(datesOnly);  
-    return {
+    $('#avgWeightLine').highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -100,9 +175,16 @@ Template.chart.helpers({
             x: -20
         },
         xAxis: {
-            categories: datesOnly
+            categories: datesOnly,
 //           ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
 //                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            labels: {
+              rotation: 85,
+              autoRotation: [-10, -20, -30, -40, -50, -60, -70, -80, -90],
+              style: {
+                whiteSpace: 'nowrap'
+              }
+            }          
         },
         yAxis: {
             title: {
@@ -129,16 +211,15 @@ Template.chart.helpers({
             name: Meteor.user().profile.firstName+'\'s Weight Progress',
             data: weightsOnly
         }]
-    };
-  }});
+    })
+  }
 
 
-Template.weightGraph.rendered = function () {
-// $( document ).ready(function() {
-//     //Get the context of the canvas element we want to select
-//     var ctx = document.getElementById("myChart").getContext("2d");
-//     var myNewChart = new Chart(ctx).Line(data,null);
-//   });
-
-
-};
+Template.chart.rendered = function () {
+    this.autorun(function (c) {
+//       console.log(Session.get('latestUserBmisByPCode'));  
+      if(Meteor.user() !== undefined){
+      buildWeightLine();
+      }
+    });
+}

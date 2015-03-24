@@ -1,10 +1,12 @@
 <template name="updateWeight">
- <header class="bar bar-nav">
+<!--  <header class="bar bar-nav">
+    <a class="icon icon-left-nav pull-left" href="{{pathFor getPreviousPage}}"></a>
     <h3 class="title">{{pageName}}</h3>
-  </header>
+  </header> -->
+  {{> titleBar pageName="Update Weight" backButton=1}}
   <div class="content">
     <div class="content-padded">
-  <div>
+<!--   <div>
   <ul class="table-view">
     <li class="table-view-cell">
       <a class="navigate-left" align="left" href="{{pathFor getPreviousPage}}">
@@ -12,7 +14,7 @@
       </a>
     </li>
     </ul>
-  </div>
+  </div> -->
 <!--     {{#autoForm collection="Weights" id="updateWeight" type="insert"}} -->
       {{#autoForm collection="Weights" id="updateWeight" type="method" meteormethod="updateWeight"}}
     <fieldset>

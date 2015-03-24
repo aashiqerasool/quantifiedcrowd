@@ -1,0 +1,8 @@
+<template name="titleBar">
+  <header class="bar bar-nav">
+    {{#if backButton}}
+    <a class="icon icon-left-nav pull-left" href="{{pathFor getPreviousPage}}"></a>
+    {{/if}}
+    <h3 class="title">{{pageName}}</h3>
+  </header>
+</template>

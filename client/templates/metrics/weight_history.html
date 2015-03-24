@@ -1,8 +1,6 @@
 <template name="weightHistory">
- <header class="bar bar-nav">
-    <h3 class="title">{{pageName}}</h3>
-  </header>
-  <div>
+  {{> titleBar pageName="Weight Progress" backButton=1}}
+<!--   <div>
   <ul class="table-view">
     <li class="table-view-cell">
       <a class="navigate-left" align="left" href="/metrics">
@@ -10,8 +8,8 @@
       </a>
     </li>
     </ul>
-  </div>
-  <div class="content-padded">
+  </div> -->
+  <div class="content">
   {{> weightHistoryList}}
   {{> weightGraph}}
   </div>
