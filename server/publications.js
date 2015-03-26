@@ -20,6 +20,10 @@ Meteor.publish("medsData", function() {
   return Meds.find();
 });
 
+Meteor.publish("healthCalDataPub", function() {
+  return HealthCalData.find();
+});
+
 Meteor.publish("userWeightData", function() {
   return Weights.find({userId: this.userId});
 });
