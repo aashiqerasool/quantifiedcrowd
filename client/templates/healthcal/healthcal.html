@@ -1,36 +1,39 @@
 <!-- some of the code below is derived from the tutorial @ http://www.meteortuts.com/video/calendarappl -->
 <template name="healthCal">
   {{> titleBar pageName="HealthCal"}}
-  <div class = "content">
-    {{> editEventDialog}}
+  
+  <div class = "content-padded">
     {{> calendar}}
   </div>
 </template>
 
 <template name="calendar">
+<!--   {{> editEventDialog}} -->
   <div id="calendar">
   </div>
 </template>
 
+
+
+
 <template name="editEventDialog">
-  <div class="modal fade in show" id="" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close closeDialog" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="">Edit Event</h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Enter a Title" value="{{title}}" >
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default closeDialog" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary updateTitle">Save</button>
-        </div>
+<!--   <div id="editEvtModal" class="modal"> -->
+    <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left" href="{{pathFor 'healthCal'}}"></a>
+      <a class="icon icon-close pull-right push-right navigate-right" href="{{pathFor 'healthCal'}}"></a>
+      <h1 class="title">Edit Event</h1>
+    </header>
+
+    <div class="content">
+      <div class="form-group">
+        <h3>{{start}} - {{end}}</h3>
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" placeholder="Enter a Title" value="{{title}}" >
+        
       </div>
+            <button type="button" class="btn btn-default closeDialog" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary updateTitle">Save</button>
+
     </div>
-  </div>  
+<!--   </div> -->
 </template>

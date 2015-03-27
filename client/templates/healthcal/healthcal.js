@@ -16,7 +16,12 @@ Template.calendar.rendered = function () {
       var calEvts = HealthCalData.find({},{reactive:false}).fetch();
       console.log(calEvts);
       callback(calEvts);
-    }
+    },
+    eventClick:function(calEvent,jsEvent,view){
+//       Session.set('editing_event',calEvent._id);
+      Router.go('/healthCal/editEvent/'+calEvent._id);
+//       $('#title').val(calEvent.title);
+    },    
   }).data().fullCalendar;
   Tracker.autorun(function() {
     HealthCalData.find().fetch();
