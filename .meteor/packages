@@ -41,10 +41,14 @@ sergeyt:typeahead
 mizzao:autocomplete
 raix:handlebar-helpers
 twbs:bootstrap
-rajit:bootstrap3-datepicker
-aldeed:autoform-bs-datepicker
 
-doctorpangloss:mongodb-server-aggregation
 percolate:synced-cron
 zendy:velociratchet
 rzymek:fullcalendar
+meteorhacks:fast-render
+yogiben:autoform-tags
+tsega:bootstrap3-datetimepicker
+mrt:moment-timezone
+aldeed:autoform-bs-datetimepicker
+miguelalarcos:afwrap-xdatetime
+meteorhacks:aggregate

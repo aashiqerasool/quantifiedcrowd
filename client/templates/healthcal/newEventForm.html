@@ -1,0 +1,20 @@
+<template name='newEventForm'>
+<!--   {{> titleBar pageName="Add New Event" backButton=1}} -->
+  <header class="bar bar-nav">
+      <a class="icon icon-left-nav pull-left" href="{{pathFor 'healthCal'}}"></a>
+      <h1 class="title">Add New Event</h1>
+  </header>
+<!--   {{> quickForm collection="HealthCalData" type="insert"}} -->
+  <div class='content'>
+  {{#autoForm collection="HealthCalData" id="newEventForm" type="insert"}}
+<!--     <fieldset> -->
+<!--       <legend></legend> -->
+      {{> afQuickField name='title'}}
+      {{> afQuickField name='start'}}
+      {{> afQuickField name='end'}}
+      {{> afQuickField name='tags'}}
+<!--     </fieldset> -->
+    <button type="submit" class="btn btn-primary btn-block">Save</button>
+  {{/autoForm}}
+  </div>
+</template>

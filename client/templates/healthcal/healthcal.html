@@ -1,9 +1,14 @@
 <!-- some of the code below is derived from the tutorial @ http://www.meteortuts.com/video/calendarappl -->
 <template name="healthCal">
-  {{> titleBar pageName="HealthCal"}}
-  
-  <div class = "content-padded">
+    <header class="bar bar-nav">
+      <a class="icon icon-compose pull-right" href="{{pathFor 'newEventForm'}}"></a>
+      <h1 class="title">HealthCal</h1>
+    </header>
+  <div class = "content">
+<!--     <div class="content-padded"> -->
     {{> calendar}}
+<!--     </div> -->
+    
   </div>
 </template>
 
@@ -11,6 +16,8 @@
 <!--   {{> editEventDialog}} -->
   <div id="calendar">
   </div>
+  
+<!--   <button type="button" class="btn btn-primary gotoToday">Today</button> -->
 </template>
 
 
@@ -20,20 +27,31 @@
 <!--   <div id="editEvtModal" class="modal"> -->
     <header class="bar bar-nav">
       <a class="icon icon-left-nav pull-left" href="{{pathFor 'healthCal'}}"></a>
-      <a class="icon icon-close pull-right push-right navigate-right" href="{{pathFor 'healthCal'}}"></a>
       <h1 class="title">Edit Event</h1>
     </header>
-
-    <div class="content">
+  <div class="content">
+  {{#autoForm collection="HealthCalData" doc=this id="newEventForm" type="update"}}
+    <fieldset>
+<!--       <legend></legend> -->
+      {{> afQuickField name='title'}}
+      {{> afQuickField name='start'}}
+      {{> afQuickField name='end'}}
+      {{> afQuickField name='tags'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary btn-block">Save</button>
+  {{/autoForm}}
+  </div>
+  
+<!--     <div class="content">
       <div class="form-group">
         <h3>{{start}} - {{end}}</h3>
         <label for="title">Title</label>
         <input type="text" class="form-control" id="title" placeholder="Enter a Title" value="{{title}}" >
         
-      </div>
-            <button type="button" class="btn btn-default closeDialog" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary updateTitle">Save</button>
+      </div> -->
+<!--             <button type="button" class="btn btn-default closeDialog" data-dismiss="modal">Close</button> -->
+<!--             <button type="button" class="btn btn-primary updateEvent">Save</button>
 
-    </div>
+    </div> -->
 <!--   </div> -->
 </template>
