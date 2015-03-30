@@ -52,3 +52,4 @@ mrt:moment-timezone
 aldeed:autoform-bs-datetimepicker
 miguelalarcos:afwrap-xdatetime
 meteorhacks:aggregate
+aldeed:delete-button

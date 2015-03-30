@@ -2,6 +2,9 @@
 //     return moment(new Date(timestamp)).fromNow();
 // });
 
+Meteor.subscribe("userWeightData");
+Meteor.subscribe("userBmiData");
+
 Handlebars.registerHelper("prettifyDate", function(timestamp) {
      var date = new Date(timestamp);
      return date.toString("dd-MM-yyyy");
@@ -88,5 +91,3 @@ Template.profile.helpers({
   }
 });
 
-Meteor.subscribe("userWeightData");
-Meteor.subscribe("userBmiData");

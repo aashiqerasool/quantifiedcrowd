@@ -9,6 +9,10 @@ Template.calendar.rendered = function () {
     },
     titleFormat: 'MM-DD-YYYY',
     defaultView: 'agendaDay',
+    firstDay: 1,
+//     height: 450,
+    contentHeight: 440,
+//     aspectRatio: 1.50,
     dayClick: function (date, jsEvent, view) {
       Router.go('/healthCal/newEvent/');
 //       var calEvt = {};
@@ -61,3 +65,9 @@ Template.editEventDialog.events({
     Router.go('healthCal');
   }
 });
+
+AutoForm.addHooks(['newEventForm', 'editEventForm'], {
+    onSuccess: function () {
+      Router.go('/healthcal');
+    }
+  });

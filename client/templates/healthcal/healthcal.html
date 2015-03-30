@@ -30,7 +30,7 @@
       <h1 class="title">Edit Event</h1>
     </header>
   <div class="content">
-  {{#autoForm collection="HealthCalData" doc=this id="newEventForm" type="update"}}
+  {{#autoForm collection="HealthCalData" doc=this id="editEventForm" type="update"}}
     <fieldset>
 <!--       <legend></legend> -->
       {{> afQuickField name='title'}}
@@ -39,6 +39,8 @@
       {{> afQuickField name='tags'}}
     </fieldset>
     <button type="submit" class="btn btn-primary btn-block">Save</button>
+<!--     <button type="submit" class="btn btn-negative btn-block">Delete</button> -->
+    {{> quickRemoveButton collection="HealthCalData" _id=this._id class="btn btn-negative btn-block"}}
   {{/autoForm}}
   </div>
   
