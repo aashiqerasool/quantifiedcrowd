@@ -6,7 +6,7 @@ Meteor.publish(null, function() {
  } else {
    return null;
  }
-}, /*suppress autopublish warning*/{is_auto: true});
+}, /*suppress autopublish warning*/{is_auto: false});
 
 Meteor.publish("weightsRemote", function() {
   return Weights.find();
@@ -21,7 +21,7 @@ Meteor.publish("medsData", function() {
 });
 
 Meteor.publish("healthCalDataPub", function() {
-  return HealthCalData.find();
+  return HealthCalData.find({owner: this.userId});
 });
 
 Meteor.publish("userWeightData", function() {
@@ -30,6 +30,18 @@ Meteor.publish("userWeightData", function() {
 
 Meteor.publish("userBmiData", function() {
   return Bmi.find({userId: this.userId});
+});
+
+Meteor.publish("userBpData", function() {
+  return BloodPressure.find({userId: this.userId});
+});
+
+Meteor.publish("userBloodSugarData", function() {
+  return BloodSugar.find({userId: this.userId});
+});
+
+Meteor.publish("userActivityData", function() {
+  return Activities.find({userId: this.userId});
 });
 
 Meteor.publish('oaAvgBmiHistoryPub',function(){

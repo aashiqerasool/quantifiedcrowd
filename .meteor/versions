@@ -3,6 +3,7 @@ accounts-password@1.1.0
 alamont:chartjs@0.0.9
 alanning:roles@1.2.13
 aldeed:autoform@4.2.2
+aldeed:autoform-bs-datepicker@1.1.1
 aldeed:autoform-bs-datetimepicker@1.0.5
 aldeed:autoform-select2@2.0.1
 aldeed:collection2@2.3.2
@@ -82,6 +83,7 @@ mrt:jquery-ui@1.9.2
 mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
 mrt:underscore-string-latest@2.3.3
+msavin:mongol@0.3.5
 multiply:iron-router-progress@1.0.1
 natestrauser:select2@3.5.1
 npm-bcrypt@0.7.8_1
@@ -94,6 +96,7 @@ percolate:synced-cron@1.2.0
 percolate:velocityjs@1.1.0
 pfafman:epoch@0.6.0
 raix:handlebar-helpers@0.2.4
+rajit:bootstrap3-datepicker@1.4.1
 random@1.0.3
 reactive-dict@1.1.0
 reactive-var@1.0.5

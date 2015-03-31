@@ -4,6 +4,8 @@
 
 Meteor.subscribe("userWeightData");
 Meteor.subscribe("userBmiData");
+Meteor.subscribe("userBpData");
+Meteor.subscribe("userBloodSugarData");
 
 Handlebars.registerHelper("prettifyDate", function(timestamp) {
      var date = new Date(timestamp);

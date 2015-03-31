@@ -1,9 +1,9 @@
-<template name="updateWeight">
+<template name="updateActivity">
 <!--  <header class="bar bar-nav">
     <a class="icon icon-left-nav pull-left" href="{{pathFor getPreviousPage}}"></a>
     <h3 class="title">{{pageName}}</h3>
   </header> -->
-  {{> titleBar pageName="Update Weight" backButton=1}}
+  {{> titleBar pageName="Update Activity" backButton=1}}
   <div class="content">
     <div class="content-padded">
 <!--   <div>
@@ -16,14 +16,20 @@
     </ul>
   </div> -->
 <!--     {{#autoForm collection="Weights" id="updateWeight" type="insert"}} -->
-      {{#autoForm collection="Weights" id="updateWeight" type="method" meteormethod="updateWeight"}}
+      {{#autoForm collection="Activities" id="updateActivity" type="insert"}}
     <fieldset>
 <!--       <legend>Update Weight</legend> -->
-      {{> afQuickField name="weight"}}
+      {{> afQuickField name="activityDate"}}
+      {{> afQuickField name="activityHours"}}
+      {{> afQuickField name="tags"}}
       {{> afQuickField name="comments"}}
     </fieldset>
-    <button type="submit" class="btn btn-primary btn-block">Update</button>
+    <button type="submit" class="btn btn-primary btn-block">Add</button>
     {{/autoForm}}
+      <br>
+      <br>
+      <br>
+      <br>
     </div>
   </div>
 </template>
