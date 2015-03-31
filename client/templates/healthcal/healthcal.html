@@ -27,6 +27,7 @@
 <!--   <div id="editEvtModal" class="modal"> -->
     <header class="bar bar-nav">
       <a class="icon icon-left-nav pull-left" href="{{pathFor 'healthCal'}}"></a>
+<!--       <a class="icon icon-compose pull-right" href="{{pathFor 'newEventForm'}}"></a> -->
       <h1 class="title">Edit Event</h1>
     </header>
   <div class="content">
@@ -37,10 +38,10 @@
       {{> afQuickField name='start'}}
       {{> afQuickField name='end'}}
       {{> afQuickField name='tags'}}
+    <button type="submit" class="btn btn-primary">Save</button>
+    {{> quickRemoveButton collection="HealthCalData" _id=this._id class="btn btn-negative"}}      
     </fieldset>
-    <button type="submit" class="btn btn-primary btn-block">Save</button>
-<!--     <button type="submit" class="btn btn-negative btn-block">Delete</button> -->
-    {{> quickRemoveButton collection="HealthCalData" _id=this._id class="btn btn-negative btn-block"}}
+
   {{/autoForm}}
   </div>
   
