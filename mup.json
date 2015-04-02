@@ -29,7 +29,7 @@
 
   // Configure environment
   "env": {
-    "ROOT_URL": "http://178.62.44.227",
+    "ROOT_URL": "http://app.quantifiedcrowd.uk",
     //"MONGO_URL": "mongodb://quantifiedCrowd:Saify786@dogen.mongohq.com:10081/quantifiedCrowd"
     "MONGO_URL": "mongodb://qcapp:Saify786@ds039291.mongolab.com:39291/quantifiedcrowd"
   },
