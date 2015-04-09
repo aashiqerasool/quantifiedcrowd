@@ -29,6 +29,7 @@
 
   // Configure environment
   "env": {
+    "PORT": 3000,
     "ROOT_URL": "http://app.quantifiedcrowd.uk",
     //"MONGO_URL": "mongodb://quantifiedCrowd:Saify786@dogen.mongohq.com:10081/quantifiedCrowd"
     "MONGO_URL": "mongodb://qcapp:Saify786@ds039291.mongolab.com:39291/quantifiedcrowd"

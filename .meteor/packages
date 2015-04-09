@@ -61,3 +61,4 @@ meteorhacks:zones
 service-configuration
 accounts-ui
 mikael:accounts-merge
+aldeed:geocoder
