@@ -401,7 +401,7 @@ Meteor.methods({
     
     var pipeline = [
       { $match : { userId : { $in: userIds } } },
-      { $sort: {userId: 1, updatedAt: 1, weight: 1}}, 
+      { $sort: {userId: 1, activityDate: 1, activityHours: 1}}, 
       { $group: {
         _id: "$userId",
         lastUpdate: { 
@@ -430,47 +430,55 @@ Meteor.methods({
 //     console.log(finalResults);
     console.log(result[0]);
     return result[0];
-//     var pipeline2 = [
-//       { $sort: {userId: 1, updatedAt: 1, bmi: 1}},
-//       { $group: {
-//         _id: {
-//           "userId": "$userId",
-//           "bmi":    "$bmi"
-//         },
-//         lastUpdate: { 
-//           $last: "$updatedAt"}
-//       }
-//       }
-//     ];
-//     var pipeline2 = [
-//       { $group: {
-//         _id: {
-//           "userId": "$userId",
-//           "bmi":    "$bmi"
-//         },
-//         "bmiCount": { "$sum": 1 }
-//       }},
-//       { "$group": {
-//         "_id": "$_id.userId",
-//         "bmis": {
-//           "$push": {
-//             "bmi": "$_id.bmi",
-//             "count": "$bmiCount"
-//         },
-//       },
-//        "count": { "$sum": "$bmiCount" }
-//       }},
-//       { "$sort": { "count": -1}},
-//     ];
-//     var map1 = function () {
-//       emit(this.userId, this.bmi);
-//     };
-//     var reduce1 = function (keyUserId, valuesBmis) {
-//       return valuesBmis;
-//     };
+
   },
-  
-  
+  latestUserActivity: function() {
+//     var bmis = Meteor.users;
+//    var pipeline = [{$group: {_id: "$bmi", usersinBmi : { $sum: 1 }}}];
+//         var pipeline = [{$group: {_id: "$weight", weights : { $sum: 1 }}}];
+    
+    var pipeline = [
+      { $sort: {userId: 1, activityDate: 1, activityDate: 1}}, 
+      { $group: {
+        _id: "$userId",
+        lastUpdate: { 
+          $last: "$activityDate"},
+          activity: {
+            $last: "$activityHours"}
+
+      }
+      }
+    ];
+    var result = Activities.aggregate(pipeline);
+    console.log(result);
+    return result;
+  },
+  overallAvgActivity: function() {
+    var pipeline = [
+      { $sort: {userId: 1, activityDate: 1, activityHours: 1}}, 
+      { $group: {
+        _id: "$userId",
+        lastUpdate: { 
+          $last: "$activityDate"},
+          activity: {
+            $last: "$activityHours"}
+
+      }
+      },
+      {
+        $group:
+          {
+            _id: null,
+//             total: {"$sum": 1},
+            avgActivity: { $avg: "$activity"}
+          }
+      }
+    ];
+    var result = Activities.aggregate(pipeline);
+    console.log(result);
+    return result[0];
+
+  },
   
   //custom update methods used in hooks for aldeed:autoform package
   updateWeight: function(doc){
