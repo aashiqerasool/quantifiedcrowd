@@ -23,12 +23,10 @@ d3
 underscore
 maazalik:highcharts
 pfafman:epoch
-alamont:chartjs
 jquery
 peernohell:c3
 multiply:iron-router-progress
 sacha:spin
-alanning:roles
 houston:admin
 comerc:bs-typeahead
 comerc:autoform-typeahead
@@ -58,7 +56,4 @@ rajit:bootstrap3-datepicker
 aldeed:autoform-bs-datepicker
 meteorhacks:kadira
 meteorhacks:zones
-service-configuration
 accounts-ui
-mikael:accounts-merge
-aldeed:geocoder
