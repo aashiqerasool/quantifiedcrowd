@@ -208,7 +208,7 @@ Meteor.methods({
 //     };
   },
   oaAvgBmiHistory: function(){
-    var lastSevenDays = new Date(Date.now() - 1000 * 3600 * 24 * 4); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+    var lastSevenDays = new Date(Date.now() - 1000 * 3600 * 24 * 14); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
     var oaABmiLastSevenDays = OaAvgBmiDaily.find({updatedAt: {$gt: lastSevenDays}},{limit: 15}).fetch(); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
     console.log(oaABmiLastSevenDays);
     return oaABmiLastSevenDays;
