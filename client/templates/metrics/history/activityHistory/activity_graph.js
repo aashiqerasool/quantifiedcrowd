@@ -190,7 +190,7 @@ function buildActivityLine() {
         },
         yAxis: {
             title: {
-                text: 'Hours'
+                text: 'Average Activity Hours'
             },
             plotLines: [{
                 value: 0,

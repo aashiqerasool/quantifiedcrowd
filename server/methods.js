@@ -208,10 +208,10 @@ Meteor.methods({
 //     };
   },
   oaAvgBmiHistory: function(){
-    var lastSevenDays = new Date(Date.now() - 1000 * 3600 * 24 * 14); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
-    var oaABmiLastSevenDays = OaAvgBmiDaily.find({updatedAt: {$gt: lastSevenDays}},{limit: 15}).fetch(); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
-    console.log(oaABmiLastSevenDays);
-    return oaABmiLastSevenDays;
+    var lastFourteenDays = new Date(Date.now() - 1000 * 3600 * 24 * 14); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+    var oaABmiLastFourteenDays = OaAvgBmiDaily.find({updatedAt: {$gt: lastFourteenDays}},{limit: 15}).fetch(); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+    console.log(oaABmiLastFourteenDays);
+    return oaABmiLastFourteenDays;
 //     return OaAvgBmiDaily.find().fetch();
   },
   //--Weight Aggregation functions for overall userbase
@@ -341,6 +341,44 @@ Meteor.methods({
 //       return valuesBmis;
 //     };
   },
+  overallAvgWeightDaily: function() {
+    var pipeline = [
+      { $sort: {userId: 1, updatedAt: 1, weight: 1}}, 
+      { $group: {
+        _id: "$userId",
+        lastUpdate: { 
+          $last: "$updatedAt"},
+          weight: {
+            $last: "$weight"}
+
+      }
+      },
+      {
+        $group:
+          {
+            _id: null,
+//             total: {"$sum": 1},
+            avgWeight: { $avg: "$weight"}
+          }
+      },
+//       {
+//         $out:
+//           "bmiOverallAvgDaily"
+//       }
+    ];
+    var result = Weights.aggregate(pipeline);
+      
+    console.log(result[0]);
+    return result[0];
+
+  },
+  oaAvgWeightHistory: function(){
+    var lastFourteenDays = new Date(Date.now() - 1000 * 3600 * 24 * 14); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+    var oaAWeightLastFourteenDays = OaAvgWeightDaily.find({updatedAt: {$gt: lastFourteenDays}},{limit: 15}).fetch(); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+    console.log(oaAWeightLastFourteenDays);
+    return oaAWeightLastFourteenDays;
+//     return OaAvgBmiDaily.find().fetch();
+  },
   //--Blood Sugar Aggregation functions for overall userbase
   latestUserBSugar: function() {
     var pipeline = [
@@ -438,7 +476,7 @@ Meteor.methods({
 //         var pipeline = [{$group: {_id: "$weight", weights : { $sum: 1 }}}];
     
     var pipeline = [
-      { $sort: {userId: 1, activityDate: 1, activityDate: 1}}, 
+      { $sort: {userId: 1, activityDate: 1, activityHours: 1}}, 
       { $group: {
         _id: "$userId",
         lastUpdate: { 
@@ -479,7 +517,51 @@ Meteor.methods({
     return result[0];
 
   },
-  
+  overallAvgActivityDaily: function() {
+    //Yesterdays date code derived from http://jsfiddle.net/gabrieleromanato/LQB4B/ 
+    var todayTimeStamp = +new Date;
+    var oneDayTimeStamp = 1000 * 60 * 60 * 24;
+    var diff = todayTimeStamp - oneDayTimeStamp;
+    var yesterdayDate = new Date(diff);
+    var yesterdayString = yesterdayDate.getFullYear() + '-' + (yesterdayDate.getMonth() + 1) + '-' + yesterdayDate.getDate();
+    var pipeline = [
+//       { $match : { activityDate : yesterdayDate } },
+      { $sort: {userId: 1, activityDate: 1, activityHours: 1}}, 
+      { $group: {
+        _id: "$userId",
+        lastUpdate: { 
+          $last: "$activityDate"},
+        activity: {
+            $last: "$activityHours"}
+
+      }
+      },
+      {
+        $group:
+          {
+            _id: null,
+//             total: {"$sum": 1},
+            avgActivity: { $avg: "$activity"}
+          }
+      },
+//       {
+//         $out:
+//           "bmiOverallAvgDaily"
+//       }
+    ];
+    var result = Activities.aggregate(pipeline);
+      
+    console.log(result[0]);
+    return result[0];
+
+  },  
+  oaAvgActivityHistory: function(){
+    var lastFourteenDays = new Date(Date.now() - 1000 * 3600 * 24 * 14); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+    var oaAActivityLastFourteenDays = OaAvgActivityDaily.find({activityDate: {$gt: lastFourteenDays}},{limit: 15}).fetch(); //https://bulletproofmeteor.com/database-modeling/aggregation-pipeline
+    console.log(oaAActivityLastFourteenDays);
+    return oaAActivityLastFourteenDays;
+    //     return OaAvgBmiDaily.find().fetch();
+  },
   //custom update methods used in hooks for aldeed:autoform package
   updateWeight: function(doc){
     var insertDoc = {
