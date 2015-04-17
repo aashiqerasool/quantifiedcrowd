@@ -46,8 +46,22 @@ Template.profile.helpers({
     if (ageMonth < 0) {
       ageMonth = Math.abs(ageMonth);
     }
-    var ageFull = ageYear + " years " + ageMonth + " months";
-    return ageFull;
+    if (currentMonth < dobMonth) {
+      ageMonth = 12 - ageMonth;
+    }
+    var ageFull = ageYear + " years and " + ageMonth + " months old";
+    var ageFullPrecise = ageYear + " years old";
+//     var ageyr = moment(dob).twix(currentDate).length("years");
+//     var lastBday = moment((currentYear-1)+"-"+dobMonth+"-"+dob.getDay(), "YYYY-MM-DD");
+//     console.log(lastBday);
+//     var agemonth = moment(lastBday).twix(dobMonth).length("months");
+    if (ageMonth == 0) {
+    return ageFullPrecise
+    }
+    else
+    {
+    	return ageFull
+    }
   },
   latestWeight: function() {
     var latestWeight = Weights.findOne({userId: Meteor.userId()}, {sort: {updatedAt: -1}}).weight;
