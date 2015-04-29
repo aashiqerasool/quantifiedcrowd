@@ -14,9 +14,9 @@ UI.registerHelper("formatDate", function(datetime, format) {
   }
 });
 
-Template.weightGraph.helpers({
-  weightHistoryList: function(){
-    return Weights.find({userId: Meteor.userId()}, {sort: {updatedAt: -1}});
+Template.activityGraph.helpers({
+  activityHistoryList: function(){
+    return Activity.find({userId: Meteor.userId()}, {sort: {activityDate: -1}});
   }
 });
 
@@ -167,7 +167,7 @@ function buildActivityLine() {
             plotShadow: false
         },
         title: {
-            text: Meteor.user().profile.firstName+'\'s Blood Sugar History',
+            text: Meteor.user().profile.firstName+'\'s Activity History',
             align: 'center',
             x: -20 //center
         },
