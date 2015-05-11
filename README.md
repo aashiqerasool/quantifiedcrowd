@@ -5,16 +5,18 @@ The application has been tested running on Linux and Mac OSX. Although Meteor ha
 In order to install and run this application in your environment:
 
 * Install Meteor for your OS. If you are installing on Linux or Mac OSX then just open a terminal and run the following:
+
     > curl https://install.meteor.com/ | sh
 
 If you are installing on Windows then you can need to first download and install Meteor on Windows from the following link:
-    https://install.meteor.com/windows
+
+https://install.meteor.com/windows
 
 Installing Meteor following the above methods will install the Meteor Framework and all its dependencies on your system
 
 * In this archive there are two folders, quantifiedCrowd and qcDashboard. Both are individual applications that function together. The applications are run in a development mode on Meteor. In order to do this on Linux or Mac OSX please do the following:
 
-  First navigate to the root of this archive via the terminal/command line, then run the following:
+First navigate to the root of this archive via the terminal/command line, then run the following:
 
     > cd <app-root> //<app-root> will be either quantifiedCrowd or qcDashboard
     > meteor
@@ -23,7 +25,7 @@ It is recommended to first follow the above process and run quantifiedCrowd (mob
 
 For Windows:
 
-  Open the Microsoft Windows Command Line Interface and navigate to the root of this archive, then run the following commands for each of quantifiedCrowd and qcDashboard, as above for Linux and Mac OSX:
+Open the Microsoft Windows Command Line Interface and navigate to the root of this archive, then run the following commands for each of quantifiedCrowd and qcDashboard, as above for Linux and Mac OSX:
     
     > cd <app-root> //<app-root> will be either quantifiedCrowd or qcDashboard
     > meteor
