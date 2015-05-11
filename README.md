@@ -16,8 +16,8 @@ Installing Meteor following the above methods will install the Meteor Framework 
 
   First navigate to the root of this archive via the terminal/command line, then run the following:
 
-    $ cd <app-root> //<app-root> will be either the root of the quantifiedCrowd folder or the root of the qcDashboard folder.
-    $ meteor
+    > cd <app-root> //<app-root> will be either the root of the quantifiedCrowd folder or the root of the qcDashboard folder.
+    > meteor
 
 It is recommended to first follow the above process and run quantifiedCrowd (mobile app) by replacing <app-root> with quantifiedCrowd, then follow the same process to run qcDashboard by replacing <app-root> with qcDashboard.
 
