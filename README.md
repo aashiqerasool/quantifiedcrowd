@@ -34,4 +34,15 @@ Again, the same order of execution is recommended as with Linux/OSX.
 
 Once these commands are done you will be able to access the respective applications by navigating to http://localhost:3000 (for quantifiedCrowd) and http://localhost:3001 (for qcDashboard).
 
-Be aware that in the production version of this platform an external MongoDB server is used, that is hosted by MongoLabs, however when running this application elsewhere the local MongoDB instance provided and run by Meteor is used. Also some changes need to be made in the qcDashboard code before it can connect to the quantifiedCrowd backend required for the proper functioning of the application.
+Be aware that in the production version of this platform an external MongoDB server is used, that is hosted by MongoLabs, however when running this application elsewhere the local MongoDB instance provided and run by Meteor is used. 
+
+Also some changes need to be made in the qcDashboard code before it can connect to the quantifiedCrowd backend required for the proper functioning of the application. In the qcDashboard folder go to the 'lib' folder and open the collections.js file. In this file change the first line from:
+
+    Remote = DDP.connect('http://app.quantifiedcrowd.uk');
+
+to:
+
+    Remote = DDP.connect('http://localhost:3000');
+
+
+NOTE: All the instructions above run the respective applications in Meteors development mode.
